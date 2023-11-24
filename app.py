@@ -1,4 +1,3 @@
-# Import the required libraries
 import streamlit as st
 from transformers import pipeline
 
@@ -11,15 +10,17 @@ def get_prediction(text):
     return result['label'], result['score']
 
 # Create a Streamlit app
-st.title("Text Classification with Hugging Face")
-st.write("This app allows you to input text and then returns classification predictions based on a pre-trained text classification model from Hugging Face.")
+st.title("Text Classification")
+st.write("Input text to see classification predictions based on a pre-trained text classification model from Hugging Face.")
 
 # Get the user input for the text
 text = st.text_area("Enter your text here:")
 
-# Check if the text is not empty
-if text:
-    # Get the prediction
-    label, score = get_prediction(text)
-    # Display the prediction
-    st.write(f"The predicted label is: {label} with a score of {score}")
+# A button for the prediction
+if st.button("Enter"):
+    # Check if the text is not empty
+    if text:
+        # Get the prediction
+        label, score = get_prediction(text)
+        # Display the prediction
+        st.write(f"The predicted label is: {label} with a score of {score}")
