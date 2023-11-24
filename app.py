@@ -3,7 +3,7 @@ import streamlit as st
 from transformers import pipeline
 
 # Initialize the Hugging Face model
-classifier = pipeline('sentiment-analysis', model='textattack/bert-base-uncased-imdb')
+classifier = pipeline('sentiment-analysis', model='textattack/bert-base-uncased-imdb', framework='pt')
 
 # Define a function to get predictions
 def get_prediction(text):
